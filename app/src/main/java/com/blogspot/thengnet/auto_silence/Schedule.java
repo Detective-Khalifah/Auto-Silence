@@ -1,20 +1,25 @@
 package com.blogspot.thengnet.auto_silence;
 
-import java.sql.Date;
-
 public class Schedule {
 
+    // TODO: Using {@link String} type for #startTime & #endTime during testing; re-factor to a
+    //  suitable Date format later.
     private boolean isDay;
     private String title;
     private String description;
-    private Date startTime;
-    private Date endTime;
+    private String startDate;
+    private String startTime;
+    private String endDate;
+    private String endTime;
 
-    public Schedule (boolean isDay, String title, String description, Date startTime, Date endTime) {
+    public Schedule (boolean isDay, String title, String description, String startDate,
+                     String startTime, String endDate, String endTime) {
         this.isDay = isDay;
         this.title = title;
         this.description = description;
+        this.startDate = startDate;
         this.startTime = startTime;
+        this.endDate = endDate;
         this.endTime = endTime;
     }
 
@@ -42,19 +47,35 @@ public class Schedule {
         this.description = description;
     }
 
-    public Date getStartTime () {
+    public String getStartDate () {
+        return startDate;
+    }
+
+    public void setStartDate (String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getStartTime () {
         return startTime;
     }
 
-    public void setStartTime (Date startTime) {
+    public void setStartTime (String startTime) {
         this.startTime = startTime;
     }
 
-    public Date getEndTime () {
+    public String getEndDate () {
+        return endDate;
+    }
+
+    public void setEndDate (String endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getEndTime () {
         return endTime;
     }
 
-    public void setEndTime (Date endTime) {
+    public void setEndTime (String endTime) {
         this.endTime = endTime;
     }
 }
